@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Hash;
 use App\Models\Room;
 
 class RoomController extends Controller
@@ -22,11 +22,13 @@ class RoomController extends Controller
         request() -> validate([
             'tiperoom' => ['required', 'string'],
             'jumlahkamar' => ['required', 'string'],
+            'image' => ['required'],
         ]);
-
+        $request->image->store('room','public');
         Room::create([
             'tiperoom' => $request ->tiperoom,
             'jumlahkamar' => $request ->jumlahkamar,
+            'image' => $request->image->hashName(),
         ]);
 
         return redirect('room');
@@ -42,6 +44,7 @@ class RoomController extends Controller
         $room = Room::find($id);
         $room->tiperoom = $request->tiperoom;
         $room->jumlahkamar = $request->jumlahkamar;
+        $room->image = $request->image;
         $room->update();
 
         return redirect('room');

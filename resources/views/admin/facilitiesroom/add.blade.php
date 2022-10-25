@@ -35,6 +35,19 @@
                                             @endforeach
                                             </select>
                                         </div>
+                                        <div class="uk-margin">
+                                                <div class="uk-position-relative">
+                                                <div uk-form-custom="target: true">
+                                                    <input name="image" type="file">
+                                                    <input name="image" class="uk-input uk-form-width-large" type="text" placeholder="Select file" disabled>
+                                                </div>
+                                                </div>
+                                            @error('image')
+                                                <div class="uk-alert-danger">
+                                                    {{$message}}
+                                                </div>
+                                            @enderror
+                                        </div>
                                         <center>
                                         <button class="uk-button uk-button-default" name="submit">Save</button>
                                         </center>

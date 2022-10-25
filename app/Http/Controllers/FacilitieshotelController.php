@@ -22,9 +22,10 @@ class FacilitieshotelController extends Controller
             'name' => ['required', 'string'],
             'keterangan' => ['required', 'string'],
         ]);
-
+        $request->image->store('facilitieshotel','public');
         facilitieshotel::create([
             'name' => $request ->name,
+            'image' => $request->image->hashName(),
             'keterangan' => $request ->keterangan,
         ]);
 
@@ -41,6 +42,7 @@ class FacilitieshotelController extends Controller
         $facilitieshotel = facilitieshotel::find($id);
         $facilitieshotel->name = $request->name;
         $facilitieshotel->keterangan = $request->keterangan;
+        $facilitieshotel->image = $request->image;
         $facilitieshotel->update();
 
         return redirect('facilitieshotel');

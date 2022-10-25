@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('tiperoom');
             $table->integer('jumlahkamar');
+            $table->string('image');
             $table->timestamps();
         });
     }

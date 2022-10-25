@@ -118,7 +118,7 @@
     @foreach($facilitieshotel as $facilitieshotels)
         <div class="uk-card uk-card-default uk-card-small">
             <div class="uk-card-media-top">
-                <img src="https://getuikit.com/docs/images/light.jpg" width="1800" height="1200" alt="">
+                <img src="{{ asset('storage/facilitieshotel/' .$facilitieshotels->image) }}" width="1800" height="1200" alt="">
             </div>
             <div class="uk-card-body">
                 <h3 class="uk-card-title uk-text-center">{{$facilitieshotels->name}}</h3> 
@@ -134,12 +134,12 @@
         <br>
 </div>
 <div class="uk-container">
-<div class="uk-child-width-1-2 uk-child-width-1-1@s uk-child-width-1-1@m uk-grid" uk-grid>
+<div class="uk-child-width-1-1 uk-child-width-1-1@s uk-child-width-1-1@m uk-grid" uk-grid>
     @foreach($room as $rooms)
     <div>
         <div class="uk-card uk-card-default">
             <div class="uk-card-media-top">
-                <img src="https://getuikit.com/docs/images/light.jpg" style="object-fit: cover; width: 100%; height: 300px; object-position: center 40%;" alt="">
+                <img src="{{ asset('storage/room/' .$rooms->image) }}" style="object-fit: cover; width: 100%; height: 300px; object-position: center 40%;" alt="">
             </div>
             <div class="uk-card-body">
                 <h3 class="uk-card-title">{{$rooms->tiperoom}}</h3>
@@ -161,10 +161,9 @@
     <div class="uk-background-secondary uk-padding uk-flex uk-flex-middle uk-light uk-height-medium uk-position-z-index-negative" uk-sticky="position: bottom; overflow-flip: true; start: -100%; end: 0">
         <div class="uk-light uk-position-top-left uk-container uk-margin-top uk-margin-left">
             <h2>Hotel<strong>Star</strong></h2>
-            
         </div>
         <div class="uk-light uk-position-bottom-left uk-container uk-margin-bottom uk-margin-left">
-            Copyright 
+            Copyright @Rahmat
         </div>
     </div>
 </div>

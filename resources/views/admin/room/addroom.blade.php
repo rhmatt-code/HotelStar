@@ -22,7 +22,7 @@
                                                     <span class="uk-form-icon ion-edit"></span>
                                                     <input name="tiperoom" class="uk-input" type="text" placeholder="Tipe Room">
                                                 </div>
-                                            @error('name')
+                                            @error('tiperoom')
                                                 <div class="uk-alert-danger">
                                                     {{$message}}
                                                 </div>
@@ -33,7 +33,20 @@
                                                     <span class="uk-form-icon ion-edit"></span>
                                                     <input name="jumlahkamar" class="uk-input" type="text" placeholder="Numbers of Room">
                                                 </div>
-                                            @error('amount')
+                                            @error('jumlahkamar')
+                                                <div class="uk-alert-danger">
+                                                    {{$message}}
+                                                </div>
+                                            @enderror
+                                        </div>
+                                        <div class="uk-margin">
+                                                <div class="uk-position-relative">
+                                                <div uk-form-custom="target: true">
+                                                    <input name="image" type="file">
+                                                    <input name="image" class="uk-input uk-form-width-large" type="text" placeholder="Select file" disabled>
+                                                </div>
+                                                </div>
+                                            @error('image')
                                                 <div class="uk-alert-danger">
                                                     {{$message}}
                                                 </div>

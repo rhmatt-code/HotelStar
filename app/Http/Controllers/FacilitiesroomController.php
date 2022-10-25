@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Facilitiesroom;
+use Illuminate\Support\Facades\Hash;
 use App\Models\Room;
 
 class FacilitiesroomController extends Controller

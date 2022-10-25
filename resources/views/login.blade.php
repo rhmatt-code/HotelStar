@@ -38,6 +38,7 @@
                 </div>
                 <div class="uk-margin">
                     <p class="uk-text-default uk-text-center">Not have account yet? <a href="register"> Register Now</a></p>
+                    <p class="uk-text-default uk-text-center">Visitor? Go <a href="register">Home </a></p>
                 </div>
             </form>
             <div id="spinner" uk-spinner="ratio: 2" class="uk-position-center uk-hidden"></div>

@@ -11,6 +11,7 @@ class facilitieshotel extends Model
     protected $fillable = [
         'name',
         'keterangan',
+        'image',
     ];
     protected $table = "facilitieshotels";
 }

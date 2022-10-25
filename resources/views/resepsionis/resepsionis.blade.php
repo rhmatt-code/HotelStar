@@ -14,6 +14,12 @@
                                     <div class="uk-card-header">
                                         <strong>Resepsionis</strong>
                                     </div>
+                                    <div class="uk-card-header">
+                                        <form>
+                                            <input class="uk-input uk-width-1-4" name="date" type="date">
+                                            <button type="submit" class="uk-button uk-button-default">Filter</button>
+                                        </form>
+                                    </div>
                                     <div class="uk-card-body">
                                         <table class="uk-table uk-table-striped">
                                             <thead>
@@ -26,8 +32,9 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                            @foreach ($reservation as $reservations)
+                                            @foreach ($filteredreservations as $reservations)
                                             <tr>
+                                            @if($reservations->status == false)
                                                 <td>{{ $reservations->id }}</td>
                                                 <td>{{ $reservations->nama_tamu }}</td>
                                                 <td>{{ $reservations->cek_in }}</td>
@@ -36,6 +43,7 @@
                                                     <a href={{ url("resepsionis/checkin/$reservations->id") }}>Cek in</a>
                                                 </td>
                                             </tr>
+                                            @endif
                                             @endforeach
                                             </tbody>
                                         </table>

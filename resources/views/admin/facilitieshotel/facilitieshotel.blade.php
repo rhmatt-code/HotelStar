@@ -21,6 +21,7 @@
                                                 <th>ID</th>
                                                 <th>Name Facilities</th>
                                                 <th>Keterangan</th>
+                                                <th>Image</th>
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
@@ -30,6 +31,7 @@
                                             <td>{{ $facilitieshotels->id }}</td>
                                             <td>{{ $facilitieshotels->name }}</td>
                                             <td>{{ $facilitieshotels->keterangan }}</td>
+                                            <td><img src="{{ asset('storage/facilitieshotel/' .$facilitieshotels->image) }}" width="80" /></td>
                                             <td>
                                             <a href="{{route('editfacilitieshotel', $facilitieshotels->id)}}">Edit |</a>
                                                 <a href="{{route('deletefacilitieshotel', $facilitieshotels->id)}}">Hapus</a>

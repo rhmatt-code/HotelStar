@@ -12,6 +12,7 @@ class room extends Model
     protected $fillable = [
         'tiperoom',
         'jumlahkamar',
+        'image',
     ];
     protected $table = "rooms";
 
