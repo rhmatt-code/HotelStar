@@ -25,9 +25,9 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                        @foreach ($facilitiesroom as $facilitiesrooms)
+                                        @foreach ($reservation as $reservations)
                                         <tr>
-                                            <td>{{ $facilitiesrooms->id }}</td>
+                                            <td>{{ $reser->id }}</td>
                                             <td>{{ $facilitiesrooms->name }}</td>
                                             <td>{{ $facilitiesrooms->room_id }}</td>
                                             <td>

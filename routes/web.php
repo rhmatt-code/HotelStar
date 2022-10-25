@@ -23,11 +23,13 @@ use App\Http\Controllers\FacilitieshotelController;
 */
 
 Route::get('/', function () {
-    return view('home');
+    return view('login');
 });
+
 Route::controller(HomeController::class)->group(function () {
     Route::get('home', 'home');
-    route::get('actionlogout','actionlogout')->name('actionlogout');
+    Route::post('storeorder','store')->name('storeorder');
+
 });
 Route::controller(AdminController::class)->group(function () {
     Route::get('admin', 'show');
@@ -62,6 +64,7 @@ Route::controller(RoomController::class)->group(function () {
 
 Route::controller(ResepsionisController::class)->group(function () {
     Route::get('resepsionis', 'show')->name('resepsionis');
+    Route::get('resepsionis/checkin/{id}', 'check_in')->name('checkinresepsionis');
 });
 
 Route::middleware(['guest'])->group(function () {

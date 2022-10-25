@@ -15,11 +15,15 @@ return new class extends Migration
     {
         Schema::create('reservations', function (Blueprint $table) {
             $table->id();
+            $table->date("cek_in");
+            $table->date("cek_out");
+            $table->string("nama_pemesan");
+            $table->string("email");
+            $table->string("no_handphone");
+            $table->string("nama_tamu");
             $table->unsignedBigInteger("room_id");
             $table->foreign("room_id")->references("id")->on("rooms");
-            $table->unsignedBigInteger("receptionist_id");
-            $table->foreign("receptionist_id")->references("id")->on("users");
-            $table->integer("day_amount");
+            $table->boolean("status");
             $table->timestamps();
         });
     }

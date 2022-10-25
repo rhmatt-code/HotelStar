@@ -17,6 +17,6 @@ class room extends Model
 
     public function facilitiesroom()
     {
-        return $this->belongsTo(facilitiesroom::class);
+        return $this->hasMany(facilitiesroom::class);
     }
 }

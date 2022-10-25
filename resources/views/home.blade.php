@@ -6,79 +6,95 @@
 @include('layouts.navbar')
 
 <!-- Pemesanan -->
-<form class="uk-grid-small uk-margin-medium-top uk-margin-xlarge-left " uk-grid>
-        <div class="uk-width-1-4@s">
-                <div class="uk-margin">
-                    <span>Tanggal Check in</span>
-                    <div class="uk-inline uk-width-1-1">
-                        <span class="uk-form-icon" uk-icon="calendar"></span>
-                        <input class="uk-input uk-form-large" name= "dateofbirth" type="date">
-                    </div>
-                    @error('dateofbirth')
-                        <div class="uk-alert-danger">
-                            {{$message}}
-                        </div>
-                    @enderror
-                </div>
-        </div>
-        <div class="uk-width-1-4@s">
-                <div class="uk-margin">
-                <span>Tanggal Check Out</span>
-                    <div class="uk-inline uk-width-1-1">
-                        <span class="uk-form-icon" uk-icon="calendar"></span>
-                        <input class="uk-input uk-form-large" name= "dateofbirth" type="date">
-                    </div>
-                    @error('dateofbirth')
-                        <div class="uk-alert-danger">
-                            {{$message}}
-                        </div>
-                    @enderror
-                </div>
-        </div>
-        <div class="uk-width-1-4@s">
-            <br>
-            <a href="#modal-example" class="uk-button uk-button-default uk-button-large" uk-toggle>Pesan</a>
             <div id="modal-example" uk-modal>
                 <div class="uk-modal-dialog uk-modal-body">
                     <h2 class="uk-modal-title">Form Pemesanan</h2>
+                <form action="{{route('storeorder')}}" method="POST" enctype="multipart/form-data">
+                    @csrf
+                    <div class="uk-width-1-1@s">
                     <div class="uk-margin">
                         <div class="uk-inline uk-width-1-1">
                             <span>Nama Pemesanan</span>
-                            <input class="uk-input uk-form-large" name="email" type="email" placholder="Email">
+                            <input class="uk-input uk-form-large" name="nama_pemesan" type="name" placholder="Nama Pemesan">
                         </div>
+                        @error('nama_pemesan')
+                        <div class="uk-alert-danger">
+                            {{$message}}
+                        </div>
+                        @enderror
                     </div>
                     <div class="uk-margin">
                         <div class="uk-inline uk-width-1-1">
                             <span>Email</span>
                             <input class="uk-input uk-form-large" name="email" type="email" placholder="Email">
                         </div>
+                        @error('email')
+                        <div class="uk-alert-danger">
+                            {{$message}}
+                        </div>
+                        @enderror
                     </div>
                     <div class="uk-margin">
                         <div class="uk-inline uk-width-1-1">
                             <span>No Handphone</span>
-                            <input class="uk-input uk-form-large" name="email" type="email" placholder="Email">
+                            <input class="uk-input uk-form-large" name="no_handphone" type="name" placholder="Email">
                         </div>
+                        @error('no_handphone')
+                        <div class="uk-alert-danger">
+                            {{$message}}
+                        </div>
+                        @enderror
                     </div>
                     <div class="uk-margin">
                         <div class="uk-inline uk-width-1-1">
                             <span>Nama Tamu</span>
-                            <input class="uk-input uk-form-large" name="email" type="email" placholder="Email">
+                            <input class="uk-input uk-form-large" name="nama_tamu" type="name" placholder="Email">
                         </div>
+                        @error('nama_tamu')
+                        <div class="uk-alert-danger">
+                            {{$message}}
+                        </div>
+                        @enderror
                     </div>
                     <div class="uk-margin">
                     <span>Tipe Kamar</span>
                         <div class="uk-form-controls">
-                            <select class="uk-select" id="form-stacked-select">
-                                <option>Option 01</option>
-                                <option>Option 02</option>
+                            <select class="uk-select" id="form-stacked-select" name="room_id">
+                                @foreach ($room as $rooms)
+                                <option value="{{$rooms->id}}">{{$rooms->tiperoom}}</option>
+                                @endforeach
                             </select>
                         </div>
                     </div>
-
+                    <div class="uk-margin">
+                        <span>Tanggal Check in</span>
+                        <div class="uk-inline uk-width-1-1">
+                            <span class="uk-form-icon" uk-icon="calendar"></span>
+                            <input class="uk-input uk-form-large" name="cek_in" type="date">
+                        </div>
+                        @error('cek_in')
+                            <div class="uk-alert-danger">
+                                {{$message}}
+                            </div>
+                        @enderror
+                    </div>
+                    <div class="uk-margin">
+                    <span>Tanggal Check Out</span>
+                        <div class="uk-inline uk-width-1-1">
+                            <span class="uk-form-icon" uk-icon="calendar"></span>
+                            <input class="uk-input uk-form-large" name= "cek_out" type="date">
+                        </div>
+                        @error('cek_out')
+                            <div class="uk-alert-danger">
+                                {{$message}}
+                            </div>
+                        @enderror
+                        </div>
                     <p class="uk-text-right">
                         <button class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button>
-                        <button class="uk-button uk-button-primary" type="button">Save</button>
+                        <button class="uk-button uk-button-primary">Save</button>
                     </p>
+                </form>
                 </div>
             </div>
         </div>
@@ -93,7 +109,7 @@
 <!--  -->
 <!-- Facility Hotel -->
 <div class="uk-margin-medium-top uk-heading-line uk-text-center uk-container">
-        <h2 ><strong>Facility</strong>Hotel</h2>
+        <h2 id="facility"><strong>Facility</strong>Hotel</h2>
         <br>
 </div>
 <div class="uk-container">
@@ -114,20 +130,23 @@
 </div>
 <!--  -->
 <div class="uk-margin-medium-top uk-heading-line uk-text-center uk-container">
-        <h2 ><strong>All </strong>Room</h2>  
+        <h2 id="room"><strong>All </strong>Room</h2>
+        <br>
 </div>
 <div class="uk-container">
-<div class="uk-child-width-1-2 uk-child-width-1-4@s uk-child-width-1-3@m uk-grid" uk-grid>
-    @foreach($facilitiesroom->room as $facilitiesrooms)
+<div class="uk-child-width-1-2 uk-child-width-1-1@s uk-child-width-1-1@m uk-grid" uk-grid>
+    @foreach($room as $rooms)
     <div>
         <div class="uk-card uk-card-default">
             <div class="uk-card-media-top">
-                <img src="https://getuikit.com/docs/images/light.jpg" width="1800" height="1200" alt="">
+                <img src="https://getuikit.com/docs/images/light.jpg" style="object-fit: cover; width: 100%; height: 300px; object-position: center 40%;" alt="">
             </div>
             <div class="uk-card-body">
-                <h3 class="uk-card-title">{{$facilitiesrooms->room->tiperoom}}</h3>
+                <h3 class="uk-card-title">{{$rooms->tiperoom}}</h3>
                 <p>Facilities :</p>
-                <li value="">{{$facilitiesrooms->name}}</li>
+                @foreach($rooms->facilitiesroom as $facility)
+                    <li>{{$facility->name}}</li>
+                @endforeach
             </div>
         </div>
     </div>
