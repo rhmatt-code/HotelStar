@@ -56,7 +56,7 @@ Route::controller(FacilitiesroomController::class)->group(function () {
 Route::controller(RoomController::class)->group(function () {
     Route::get('room', 'room')->name('room');
     Route::get('add', 'add')->name('addroom');
-    Route::post('room/store','store')->name('room/store');
+    Route::post('room/store','store')->name('storeroom');
     Route::get('room/edit/{id}', 'edit')->name('edit');
     Route::post('room/update/{id}', 'update')->name('update');
     Route::get('room/delete/{id}','delete')->name('delete');

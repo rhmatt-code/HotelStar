@@ -8,6 +8,7 @@ use App\Models\Facilitieshotel;
 use App\Models\Facilitiesroom;
 use App\Models\reservations;
 use App\Models\room;
+use PDF;
 
 
 class HomeController extends Controller
@@ -44,4 +45,6 @@ class HomeController extends Controller
 
         return redirect('home');
     }
+
+    
 }

@@ -15,7 +15,7 @@
                                     <strong>Add Room</strong>
                                 </div>
                                 <div class="uk-card-body">
-                                    <form method="POST" action="{{route('room/store')}}" enctype="multipart/form-data">
+                                    <form method="POST" action="{{route('storeroom')}}" enctype="multipart/form-data">
                                         @csrf
                                         <div class="uk-margin">
                                                 <div class="uk-position-relative">

@@ -12,7 +12,7 @@
                         <div>
                             <div class="uk-card uk-card-default">
                                 <div class="uk-card-header">
-                                    <strong>Facilities Hotel</strong>
+                                    <strong>Facilities Room</strong>
                                 </div>
                                 <div class="uk-card-body">
                                     <table class="uk-table uk-table-striped">
@@ -38,7 +38,7 @@
                                         @endforeach
                                         </tbody>
                                     </table>
-                                    <a class="uk-button uk-button-primary" href="{{route('addfacilitiesroom')}}">Add Room</a>
+                                    <a class="uk-button uk-button-primary" href="{{route('addfacilitiesroom')}}">Add Facilities Room</a>
                                 </div>
                             </div>
                         </div>
