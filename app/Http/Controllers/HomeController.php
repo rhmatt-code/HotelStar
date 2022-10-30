@@ -44,4 +44,14 @@ class HomeController extends Controller
 
         return redirect('home');
     }
+    public function summary(){
+        return view('summary');
+    }
+    public function cetak_pdf()
+    {
+    	$reservation = reservations::with('room')->get();
+ 
+    	$pdf = PDF::loadview('pdf',['reservations'=>$reservation]);
+    	return $pdf->download('laporan-pegawai-pdf');
+    }
 }

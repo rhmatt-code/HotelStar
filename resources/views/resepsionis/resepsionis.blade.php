@@ -21,7 +21,7 @@
                                         </form>
                                     </div>
                                     <div class="uk-card-body">
-                                        <table class="uk-table uk-table-striped">
+                                        <table class="uk-table uk-table-striped" id="datatablesSimple">
                                             <thead>
                                                 <tr>
                                                     <th>ID</th>

@@ -3,7 +3,7 @@
                 <nav uk-navbar>
                     <div class="uk-navbar-left">
                         <a id="sidebar_toggle" class="uk-navbar-toggle" uk-navbar-toggle-icon ></a>
-                        <a href="#" class="uk-navbar-item uk-logo">
+                        <a href="{{route('admin')}}" class="uk-navbar-item uk-logo">
                             <strong>UI Admin</strong>
                         </a>
                     </div>
@@ -13,11 +13,7 @@
                                 <a href="#">{{Auth::user()->name}} &nbsp;<span class="ion-ios-arrow-down"></span></a>
                                 <div uk-dropdown="pos: bottom-right; mode: click; offset: -17;">
                                    <ul class="uk-nav uk-navbar-dropdown-nav">
-                                       <li class="uk-nav-header">Options</li>
-                                       <li><a href="#">Edit Profile</a></li>
-                                       <li class="uk-nav-header">Actions</li>
-                                       <li><a href="#">Lock</a></li>
-                                       <li><a href="#">Logout</a></li>
+                                       <li><a href="{{route('actionlogout')}}">Logout</a></li>
                                    </ul>
                                 </div>
                             </li>
@@ -44,8 +40,7 @@
                 <li><a href="{{route('room')}}">Room</a></li>
                 <li><a href="{{route('facilitiesroom')}}">Facilities Room</a></li>
                 <li><a href="{{route('facilitieshotel')}}">Facilities Hotel</a></li>
-                <li><a href="tables.html">Reservasi</a></li>
-	        <li><a href="404.html">404</a></li>
+                <li><a href="{{route('account')}}">Account</a></li>
             </ul>
         </div>
         

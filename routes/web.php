@@ -9,6 +9,7 @@ use App\Http\Controllers\RoomController;
 use App\Http\Controllers\ResepsionisController;
 use App\Http\Controllers\FacilitiesroomController;
 use App\Http\Controllers\FacilitieshotelController;
+use App\Http\Controllers\Auth;
 
 
 /*
@@ -29,10 +30,11 @@ Route::get('/', function () {
 Route::controller(HomeController::class)->group(function () {
     Route::get('home', 'home');
     Route::post('storeorder','store')->name('storeorder');
+    Route::get('summary','summary')->name('pdf');
 
 });
 Route::controller(AdminController::class)->group(function () {
-    Route::get('admin', 'show');
+    Route::get('admin', 'show')->name('admin');
     route::get('actionlogout','actionlogout')->name('actionlogout');
 });
 
@@ -61,9 +63,15 @@ Route::controller(RoomController::class)->group(function () {
     Route::post('room/update/{id}', 'update')->name('update');
     Route::get('room/delete/{id}','delete')->name('delete');
 });
+Route::controller(RegisterController::class)->group(function () {
+    Route::get('account', 'show')->name('account');
+    Route::get('admin/account/register', 'register')->name('register');
+    Route::post('admin/account/register', 'store');
+});
 
 Route::controller(ResepsionisController::class)->group(function () {
     Route::get('resepsionis', 'show')->name('resepsionis');
+    route::get('actionlogout','actionlogout')->name('actionlogout');
     Route::get('resepsionis/checkin/{id}', 'check_in')->name('checkinresepsionis');
 });
 
@@ -72,9 +80,6 @@ Route::middleware(['guest'])->group(function () {
         Route::get('login', 'login');
         Route::post('store', 'store');
     });
-    Route::controller(RegisterController::class)->group(function () {
-        Route::get('register', 'register');
-        Route::post('register', 'store');
-    });
+    
     
 });

@@ -12,9 +12,12 @@
 		<link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
 		<link rel="stylesheet" href="{{ asset ('css/style.css')}}" />
         <link rel="stylesheet" href="{{ asset ('css/notyf.min.css')}}" />
+		<link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
+
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>        
 		<script src="{{asset ('js/uikit.min.js')}}" ></script>
 		<script src="{{ asset ('js/uikit-icons.min.js')}}" ></script>
+		
 </head>
 <body>
 @section('sidebar')
@@ -36,5 +39,10 @@
 		<script src="{{ asset ('js/charts.js')}}"></script>
 		<!-- Sample Notifications -->
 		<script src="{{ asset ('js/notification.js')}}"></script>
+		<script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+		<script src="{{ asset ('js/datatables-simple-demo.js')}}"></script>
+
+		
 </body>
 </html>

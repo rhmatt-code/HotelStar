@@ -8,8 +8,14 @@ use Illuminate\Support\Facades\Hash;
 
 class RegisterController extends Controller
 {
+    public function show(){
+        $user = User::all();
+
+        return view('admin/account/account', compact('user'));
+    }
+    
     public function register(){
-        return view('register');
+        return view('admin/account/register');
     }
 
     public function store(Request $request){
@@ -31,6 +37,6 @@ class RegisterController extends Controller
             'password' => Hash::make($request->password),
         ]);
 
-        return redirect('login');
+        return redirect('admin');
     }
 }
