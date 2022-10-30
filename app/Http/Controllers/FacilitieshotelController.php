@@ -42,7 +42,12 @@ class FacilitieshotelController extends Controller
         $facilitieshotel = facilitieshotel::find($id);
         $facilitieshotel->name = $request->name;
         $facilitieshotel->keterangan = $request->keterangan;
-        $facilitieshotel->image = $request->image;
+        if (isset($request['image'])){
+            $img = $request->file('img');
+            $img ->move(public_path() . '/images/' . $id . '.jpg');
+
+            $facilitieshotel->image_path = $id . '.jpg';
+        }
         $facilitieshotel->update();
 
         return redirect('facilitieshotel');

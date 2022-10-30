@@ -8,6 +8,7 @@ use App\Models\Facilitieshotel;
 use App\Models\Facilitiesroom;
 use App\Models\reservations;
 use App\Models\room;
+use PDF;
 
 
 class HomeController extends Controller
@@ -44,6 +45,7 @@ class HomeController extends Controller
 
         return redirect('home');
     }
+<<<<<<< HEAD
     public function summary(){
         return view('summary');
     }
@@ -54,4 +56,8 @@ class HomeController extends Controller
     	$pdf = PDF::loadview('pdf',['reservations'=>$reservation]);
     	return $pdf->download('laporan-pegawai-pdf');
     }
+=======
+
+    
+>>>>>>> 7a3a66c36648996777af448e5b7201f89bc48539
 }

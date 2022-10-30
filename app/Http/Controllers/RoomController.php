@@ -44,7 +44,12 @@ class RoomController extends Controller
         $room = Room::find($id);
         $room->tiperoom = $request->tiperoom;
         $room->jumlahkamar = $request->jumlahkamar;
-        $room->image = $request->image;
+         if (isset($request['image'])){
+            $img = $request->file('img');
+            $img ->move(public_path() . '/images/' . $id . '.jpg');
+
+            $room->image_path = $id . '.jpg';
+        }
         $room->update();
 
         return redirect('room');
