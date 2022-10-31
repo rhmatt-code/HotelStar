@@ -45,19 +45,16 @@ class HomeController extends Controller
 
         return redirect('home');
     }
-<<<<<<< HEAD
     public function summary(){
-        return view('summary');
-    }
-    public function cetak_pdf()
-    {
-    	$reservation = reservations::with('room')->get();
- 
-    	$pdf = PDF::loadview('pdf',['reservations'=>$reservation]);
-    	return $pdf->download('laporan-pegawai-pdf');
-    }
-=======
+        $reservation = reservations::with('room')->get();
 
-    
->>>>>>> 7a3a66c36648996777af448e5b7201f89bc48539
+        return view('summary', compact('reservation'));
+    }
+    // public function cetak_pdf()
+    // {
+    // 	$reservation = reservations::with('room')->get();
+ 
+    // 	$pdf = PDF::loadview('pdf',['reservations'=>$reservation]);
+    // 	return $pdf->download('laporan-pegawai-pdf');
+    // }
 }

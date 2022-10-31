@@ -19,4 +19,9 @@ class reservations extends Model
         'status',
     ];
     protected $table = "reservations";
+    
+    public function room()
+    {
+        return $this->belongsTo(Room::class);
+    }
 }

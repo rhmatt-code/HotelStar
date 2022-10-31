@@ -6,11 +6,8 @@
     "license": "MIT",
     "require": {
         "php": "^8.0.2",
-<<<<<<< HEAD
         "barryvdh/laravel-dompdf": "^2.0",
-=======
         "dompdf/dompdf": "^2.0",
->>>>>>> 7a3a66c36648996777af448e5b7201f89bc48539
         "guzzlehttp/guzzle": "^7.2",
         "laravel/framework": "^9.19",
         "laravel/sanctum": "^3.0",

@@ -50,6 +50,29 @@
     </div>
 </div>
 
-<div>
-    <table>
+
+<div class=" uk-margin-top">
+    <table class="uk-table  uk-table-divider">
+        <thead>
+            <tr>
+                <th class="uk-width-small">Tipe Room</th>
+                <th class="uk-width-small">Nama Pemesan</th>
+                <th class="uk-width-small">Nama Tamu</th>
+                <th class="uk-width-small">Cek In</th>
+                <th class="uk-width-small">Cek Out</th>
+                <th class="uk-table-shrink uk-text-nowrap">Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach ($reservation as $reservations)
+                <tr>
+                    <td>{{ $reservations->room_id }}</td>
+                    <td>{{ $reservations->nama_pemesan }}</td>
+                    <td>{{ $reservations->nama_tamu }}</td>
+                    <td>{{ $reservations->cek_in }}</td>
+                    <td>{{ $reservations->cek_out }}</td>
+                </tr>
+            @endforeach
+        </tbody>
+    </table>
 </div>
