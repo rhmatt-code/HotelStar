@@ -75,4 +75,15 @@
             @endforeach
         </tbody>
     </table>
+    <div class="uk-text-right">
+        <button  class="uk-button uk-button-default" disabled> Total Harga</button>
+    </div>
+</div>
+
+<div class="uk-position-relative uk-position-z-index-zero uk-margin-top">
+    <div class="uk-background-secondary uk-padding uk-light uk-height-small  uk-text-center" >
+        <div class="uk-light uk-container uk-margin-top uk-margin-left ">
+            <h2>Thank You for Business !!</h2>
+        </div>
+    </div>
 </div>

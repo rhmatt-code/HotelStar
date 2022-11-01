@@ -36,6 +36,7 @@ class ResepsionisController extends Controller
 
         return redirect('resepsionis');
     }
+    
     public function actionlogout(){
         Auth::logout();
         return redirect('login');
