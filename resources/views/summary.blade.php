@@ -64,15 +64,13 @@
             </tr>
         </thead>
         <tbody>
-            @foreach ($reservation as $reservations)
-                <tr>
-                    <td>{{ $reservations->room_id }}</td>
-                    <td>{{ $reservations->nama_pemesan }}</td>
-                    <td>{{ $reservations->nama_tamu }}</td>
-                    <td>{{ $reservations->cek_in }}</td>
-                    <td>{{ $reservations->cek_out }}</td>
-                </tr>
-            @endforeach
+            <tr>
+                <td>{{ $reservation->room_id }}</td>
+                <td>{{ $reservation->nama_pemesan }}</td>
+                <td>{{ $reservation->nama_tamu }}</td>
+                <td>{{ $reservation->cek_in }}</td>
+                <td>{{ $reservation->cek_out }}</td>
+            </tr>
         </tbody>
     </table>
     <div class="uk-text-right">

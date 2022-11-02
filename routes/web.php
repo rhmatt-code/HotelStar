@@ -30,7 +30,7 @@ Route::get('/', function () {
 Route::controller(HomeController::class)->group(function () {
     Route::get('home', 'home');
     Route::post('storeorder','store')->name('storeorder');
-    Route::get('summary','summary')->name('pdf');
+    Route::get('summary/{id}','cetak_pdf')->name('pdf');
 
 });
 Route::controller(AdminController::class)->group(function () {

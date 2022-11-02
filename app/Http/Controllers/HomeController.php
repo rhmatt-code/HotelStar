@@ -32,7 +32,7 @@ class HomeController extends Controller
             'room_id' => ['required', 'string'],
         ]);
 
-        reservations::create([
+        $reservation = reservations::create([
             'cek_in' => $request ->cek_in,
             'cek_out' => $request ->cek_out,
             'nama_pemesan' => $request ->nama_pemesan,
@@ -43,18 +43,16 @@ class HomeController extends Controller
             'status' => false,
         ]);
 
-        return redirect('home');
-    }
-    public function summary(){
-        $reservation = reservations::with('room')->get();
+        $reservation_id = $reservation->id;
 
-        return view('summary', compact('reservation'));
+        return redirect("summary/$reservation_id");
+
     }
-    // public function cetak_pdf()
-    // {
-    // 	$reservation = reservations::with('room')->get();
- 
-    // 	$pdf = PDF::loadview('pdf',['reservations'=>$reservation]);
-    // 	return $pdf->download('laporan-pegawai-pdf');
-    // }
+    public function cetak_pdf($id){
+        $reservation = reservations::with('room')->where('id', $id)->get()->last();
+
+        $pdf = PDF::loadview('summary', compact('reservation'));
+    	return $pdf->download('summary-pdf');
+    }
+    
 }
