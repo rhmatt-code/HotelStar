@@ -21,15 +21,22 @@ class LoginController extends Controller
     ];
 
     if (Auth::Attempt($data)) {
+        $request->session()->regenerate();
         if(Auth::user()->role == 1){
             return redirect("admin");
         }
-        else{
-            return redirect("resepsionis");
+        else if (Auth::user()->level == 0){
+            return redirect('resepsionis');
         }
     }else{
         Session::flash('error', 'Email atau Password Salah');
         return redirect('login');
     }
-}
+
+    }
+    public function actionlogout(){
+        Auth::logout();
+        
+        return redirect('login');
+    }
 }

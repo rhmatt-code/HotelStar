@@ -13,7 +13,7 @@
                                 <a href="#">{{Auth::user()->name}} &nbsp;<span class="ion-ios-arrow-down"></span></a>
                                 <div uk-dropdown="pos: bottom-right; mode: click; offset: -17;">
                                    <ul class="uk-nav uk-navbar-dropdown-nav">
-                                       <li><a href="{{route('actionlogout')}}">Logout</a></li>
+                                       <li><a href="{{route('logout')}}">Logout</a></li>
                                    </ul>
                                 </div>
                             </li>
