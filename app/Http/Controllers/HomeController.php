@@ -65,8 +65,8 @@ class HomeController extends Controller
             $total = $price * $day;
         };
 
-        // $pdf = PDF::loadview('summary', compact('reservation','total'));
-    	return view('summary', compact('reservation','total'));
+        $pdf = PDF::loadview('summary', compact('reservation','total'));
+    	return $pdf->download('summary.pdf');
     }
     
 }

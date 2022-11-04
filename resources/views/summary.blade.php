@@ -2,28 +2,21 @@
 
 @section('title', 'PDF')
 
-@section('content')
-
-<!-- <div class="uk-container">
-<div class="uk-navbar uk-background-secondary uk-light">
-    <h1 class="uk-margin-left">INVOICE </h1>
-</div>
-</div> -->
 
 <div class="uk-section-secondary">
     <div class="uk-section uk-light">
         <div class="uk-navbar uk-container">
             <div class="uk-navbar-left">
-            <h1>INVOICE</h1>
+            <h2>INVOICE</h2>
             </div>
             <div class="uk-navbar-right">
-            <h1>Hotel<strong>Star</strong></h1>
+            <h2>Hotel<strong>Star</strong></h2>
             </div>
         </div>
     </div>
 </div>
 
-<div class="uk-child-width-1-2@s uk-child-width-1-6@m uk-margin-top uk-margin-medium-left" uk-grid>
+<div class="uk-margin-top uk-margin-medium-left">
     <div>
         <div class="uk-margin">
             <span class="uk-text-lead">Invoice Number:</span>
@@ -33,37 +26,37 @@
         <div class="uk-margin">
             <span class="uk-text-lead">Billied To:</span>
             <br>
-            <span>IXIXIXIXIX</span>
+            <span>{{$reservation->nama_pemesan}}</span>
         </div>
     </div>
-     <div>
+     <div class="uk-position-right">
         <div class="uk-margin">
             <span class="uk-text-lead">Date of Issue:</span>
             <br>
-            <span>IXIXIXIXIX</span>
+            <span>{{$reservation->created_at}}</span>
         </div>
         <div class="uk-margin">
             <span class="uk-text-lead">My Company:</span>
             <br>
-            <span>IXIXIXIXIX</span>
+            <span>Hotel Star</span>
         </div>
     </div>
 </div>
 
 
-<div class=" uk-margin-top">
-    <table class="uk-table  uk-table-divider">
+<div class="uk-margin-top">
+    <table class="table">
         <thead>
             <tr>
-                <th class="uk-width-small">Tipe Room</th>
-                <th class="uk-width-small">Nama Pemesan</th>
-                <th class="uk-width-small">Nama Tamu</th>
-                <th class="uk-width-small">Cek In</th>
-                <th class="uk-width-small">Cek Out</th>
-                <th class="uk-table-shrink uk-text-nowrap">Price</th>
+                <th>Tipe Room</th>
+                <th>Nama Pemesan</th>
+                <th>Nama Tamu</th>
+                <th>Cek In</th>
+                <th>Cek Out</th>
+                <th>Price</th>
             </tr>
         </thead>
-        <tbody>
+        <tbody class="table-group-divider">
             <tr>
                 <td>{{ $reservation->room->tiperoom }}</td>
                 <td>{{ $reservation->nama_pemesan }}</td>
@@ -75,7 +68,7 @@
         </tbody>
     </table>
     <div class="uk-text-right">
-        <button  class="uk-button uk-button-default uk-button-large uk-text-large" disabled>{{$total}}</button>
+        <button  class="uk-button uk-button-default uk-button-large uk-text-large uk-background-secondary uk-light" disabled>{{$total}}</button>
     </div>
 </div>
 
