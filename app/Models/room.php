@@ -13,6 +13,7 @@ class room extends Model
         'tiperoom',
         'jumlahkamar',
         'image',
+        'price',
     ];
     protected $table = "rooms";
 

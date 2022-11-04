@@ -63,14 +63,14 @@ Route::middleware(['admin'])->group(function(){
         Route::post('admin/account/register', 'store');
     });
 });
-Route::middleware(['resepsionis'])->group(function(){
+Route::middleware(['auth', 'resepsionis'])->group(function(){
     Route::controller(ResepsionisController::class)->group(function () {
         Route::get('resepsionis', 'show')->name('resepsionis');
         route::get('logout','actionlogout')->name('logout');
         Route::get('resepsionis/checkin/{id}', 'check_in')->name('checkinresepsionis');
     });
 });
-
+Route::middleware(['guest'])->group(function(){
     Route::controller(LoginController::class)->group(function () {
         Route::get('login', 'login');
         Route::post('store', 'store');
@@ -81,3 +81,4 @@ Route::middleware(['resepsionis'])->group(function(){
         Route::get('summary/{id}','cetak_pdf')->name('pdf');
     
     });
+});

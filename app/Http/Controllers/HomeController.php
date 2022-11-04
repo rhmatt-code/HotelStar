@@ -8,6 +8,8 @@ use App\Models\Facilitieshotel;
 use App\Models\Facilitiesroom;
 use App\Models\reservations;
 use App\Models\room;
+use Carbon\Carbon;
+
 use PDF;
 
 
@@ -50,9 +52,21 @@ class HomeController extends Controller
     }
     public function cetak_pdf($id){
         $reservation = reservations::with('room')->where('id', $id)->get()->last();
+        $check_in = $reservation->cek_in;
+        $check_out = $reservation->cek_out;
+        $days = (Carbon::parse($check_in))->diff(Carbon::parse($check_out));
+        $price = ((int)$reservation->room->price);
+        $day = $days->d;
+        if($day < 0){
+            $total = $price * 1;
+        }elseif($day < 1){
+            $total = $price * 1;
+        }else{
+            $total = $price * $day;
+        };
 
-        $pdf = PDF::loadview('summary', compact('reservation'));
-    	return $pdf->download('summary-pdf');
+        // $pdf = PDF::loadview('summary', compact('reservation','total'));
+    	return view('summary', compact('reservation','total'));
     }
     
 }

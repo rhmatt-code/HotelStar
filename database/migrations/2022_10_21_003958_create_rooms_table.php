@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('tiperoom');
             $table->integer('jumlahkamar');
             $table->string('image');
+            $table->string('price');
             $table->timestamps();
         });
     }

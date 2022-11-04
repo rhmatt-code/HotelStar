@@ -23,12 +23,14 @@ class RoomController extends Controller
             'tiperoom' => ['required', 'string'],
             'jumlahkamar' => ['required', 'string'],
             'image' => ['required'],
+            'price' => ['required', 'integer'],
         ]);
         $request->image->store('room','public');
         Room::create([
             'tiperoom' => $request ->tiperoom,
             'jumlahkamar' => $request ->jumlahkamar,
             'image' => $request->image->hashName(),
+            'price' => $request ->price,
         ]);
 
         return redirect('room');

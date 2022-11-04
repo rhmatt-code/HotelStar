@@ -22,6 +22,7 @@
                                                 <th>Tipe Kamar</th>
                                                 <th>Jumlah Kamar</th>
                                                 <th>Image</th>
+                                                <th>Price</th>
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
@@ -31,6 +32,7 @@
                                             <td>{{ $rooms->id }}</td>
                                             <td>{{ $rooms->tiperoom }}</td>
                                             <td>{{ $rooms->jumlahkamar }}</td>
+                                            <td>{{ $rooms->price }}</td>
                                             <td><img src="{{ asset('storage/room/' .$rooms->image) }}" width="80" /></td>
                                             <td>
                                             <a href="{{route('edit', $rooms->id)}}">Edit |</a>

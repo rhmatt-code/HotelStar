@@ -65,16 +65,17 @@
         </thead>
         <tbody>
             <tr>
-                <td>{{ $reservation->room_id }}</td>
+                <td>{{ $reservation->room->tiperoom }}</td>
                 <td>{{ $reservation->nama_pemesan }}</td>
                 <td>{{ $reservation->nama_tamu }}</td>
                 <td>{{ $reservation->cek_in }}</td>
                 <td>{{ $reservation->cek_out }}</td>
+                <td>{{ $reservation->room->price }}</td>
             </tr>
         </tbody>
     </table>
     <div class="uk-text-right">
-        <button  class="uk-button uk-button-default" disabled> Total Harga</button>
+        <button  class="uk-button uk-button-default uk-button-large uk-text-large" disabled>{{$total}}</button>
     </div>
 </div>
 

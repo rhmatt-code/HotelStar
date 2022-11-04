@@ -52,6 +52,17 @@
                                                 </div>
                                             @enderror
                                         </div>
+                                        <div class="uk-margin">
+                                                <div class="uk-position-relative">
+                                                    <span class="uk-form-icon ion-edit"></span>
+                                                    <input name="price" class="uk-input" type="number" placeholder="Price">
+                                                </div>
+                                            @error('price')
+                                                <div class="uk-alert-danger">
+                                                    {{$message}}
+                                                </div>
+                                            @enderror
+                                        </div>
                                         <center>
                                         <button class="uk-button uk-button-default" name="submit">Save</button>
                                         </center>
