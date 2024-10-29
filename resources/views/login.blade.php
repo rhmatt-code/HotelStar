@@ -3,7 +3,6 @@
 @section('title', 'Login')
 
 @section('content')
-<div class="uk-section uk-section-muted" uk-height-viewport>
     @if(session('error'))
     <div class="UIkit.notification({message: 'Notification message'})">
         <script>
@@ -16,7 +15,7 @@
         </script>
     </div>
     @endif
-    <div class="uk-height-1-1 uk-flex uk-flex-center uk-flex-middle uk-margin uk-margin-small-top uk-container">
+    <div class="uk-height-1-1 uk-flex uk-flex-center uk-flex-middle uk-position-center">
         <div class="uk-card uk-border-rounded uk-box-shadow-large uk-card-body uk-animation-slide-left uk-width-xlarge uk-card-default">
             <h1 class="uk-card-title uk-text-center">Hotel <strong>Star</strong></h1>
             <form action="store" id="login-form" method="POST">

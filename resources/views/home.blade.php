@@ -101,10 +101,12 @@
 </form>
 <!-- About Hotel -->
 <div class="uk-margin-medium-top uk-heading-line uk-text-center uk-container">
-        <h2 ><strong>Star</strong>Hotel</h2>  
+        <h2 ><strong>Star</strong>Hotel</h2>
 </div>
 <div class="uk-container">
-    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quasi earum expedita aliquam non saepe modi quas voluptates aut atque voluptas, reiciendis vitae! Facere eaque nulla natus excepturi! At, cumque quidem!locale_filter_matches Lorem ipsum, dolor sit amet consectetur adipisicing elit. Minus voluptates sunt soluta asperiores est suscipit, mollitia accusantium nemo modi ad labore illo corporis nam laboriosam praesentium alias eaque, dolor cum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque excepturi minima neque dicta eligendi praesentium corrupti quidem? Necessitatibus sapiente iusto laudantium nostrum. Ipsum doloremque nulla reiciendis praesentium dicta commodi dolorem.</p>
+    <p>Hotelstar adalah sebuah destinasi penginapan yang berkomitmen untuk memberikan pengalaman berkelas dan tak terlupakan bagi para tamu. Terletak di lokasi yang strategis dan dikelilingi oleh panorama menawan, Hotelstar menjadi pilihan ideal bagi para pelancong yang mencari kenyamanan dan kemewahan dengan nuansa yang hangat. Hotel ini dirancang dengan arsitektur modern, interior mewah, serta dekorasi yang artistik, memberikan suasana yang elegan sekaligus ramah di setiap sudutnya.</p>
+    <p>Hotelstar memiliki berbagai tipe kamar yang dirancang untuk memenuhi kebutuhan beragam tamu, mulai dari kamar standar untuk para pelancong solo atau pasangan hingga suite mewah bagi mereka yang menginginkan kenyamanan ekstra. Setiap kamar dilengkapi dengan fasilitas unggulan, seperti tempat tidur berkualitas tinggi, linen mewah, TV layar datar, AC, brankas pribadi, minibar, serta koneksi Wi-Fi yang stabil dan cepat, memastikan para tamu dapat menikmati waktu istirahat dengan nyaman sambil tetap terhubung dengan dunia luar.</p>
+
 </div>
 <!--  -->
 <!-- Facility Hotel -->
@@ -121,7 +123,7 @@
                 <img src="{{ asset('storage/facilitieshotel/' .$facilitieshotels->image) }}" width="1800" height="1200" alt="">
             </div>
             <div class="uk-card-body">
-                <h3 class="uk-card-title uk-text-center">{{$facilitieshotels->name}}</h3> 
+                <h3 class="uk-card-title uk-text-center">{{$facilitieshotels->name}}</h3>
             </div>
         </div>
     @endforeach
@@ -130,40 +132,95 @@
 </div>
 <!--  -->
 <div class="uk-margin-medium-top uk-heading-line uk-text-center uk-container">
-        <h2 id="room"><strong>All </strong>Room</h2>
+        <h2 id="room"><strong>Type </strong>Room</h2>
         <br>
 </div>
 <div class="uk-container">
 <div class="uk-child-width-1-1 uk-child-width-1-1@s uk-child-width-1-1@m uk-grid" uk-grid>
-    @foreach($room as $rooms)
-    <div>
-        <div class="uk-card uk-card-default">
-            <div class="uk-card-media-top">
-                <img src="{{ asset('storage/room/' .$rooms->image) }}" style="object-fit: cover; width: 100%; height: 300px; object-position: center 40%;" alt="">
-            </div>
-            <div class="uk-card-body">
-                <h3 class="uk-card-title">{{$rooms->tiperoom}}</h3>
-                <p>Facilities :</p>
-                @foreach($rooms->facilitiesroom as $facility)
-                    <li>{{$facility->name}}</li>
+    <div class="uk-slider-container-offset" uk-slider>
+        <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1">
+            <div class="uk-slider-items uk-child-width-1-1 uk-child-width-1-2@s uk-child-width-1-3@m uk-grid">
+                @foreach($room as $rooms)
+                <div>
+                    <div class="uk-card uk-card-default">
+                        <div class="uk-card-media-top">
+                            <img src="{{ asset('storage/room/' .$rooms->image) }}" style="object-fit: cover; width: 100%; height: 300px; object-position: center 40%;" alt="">
+                        </div>
+                        <div class="uk-card-body">
+                            <h3 class="uk-card-title">{{$rooms->tiperoom}}</h3>
+                            <p>Facilities :</p>
+                            @foreach($rooms->facilitiesroom as $facility)
+                                <span>{{$facility->name}}</span>
+                            @endforeach
+                            <br>
+                            <p>Harga Sewa: <strong>@currency($rooms->price)</strong></p>
+                        </div>
+                    </div>
+                </div>
                 @endforeach
             </div>
         </div>
     </div>
-    @endforeach
+</div>
+</div>
+</div>
+<!--  -->
+<div class="uk-margin-medium-top uk-heading-line uk-text-center uk-container">
+    <h2 id="room"><strong>Hotel </strong>Gallery</h2>
+    <br>
+</div>
+<div class="uk-container">
+<div class="uk-child-width-1-1 uk-child-width-1-1@s uk-child-width-1-1@m uk-grid" uk-grid>
+    <div class="uk-child-width-1-2@s uk-child-width-1-3@m uk-child-width-1-4@l uk-text-center uk-grid-column-small" uk-grid>
+        <div>
+            <div class="uk-card uk-card-default uk-card-body">Item</div>
+        </div>
+        <div>
+            <div class="uk-card uk-card-default uk-card-body">Item</div>
+        </div>
+        <div>
+            <div class="uk-card uk-card-default uk-card-body">Item</div>
+        </div>
+        <div>
+            <div class="uk-card uk-card-default uk-card-body">Item</div>
+        </div>
+        <div>
+            <div class="uk-card uk-card-default uk-card-body">Item</div>
+        </div>
+        <div>
+            <div class="uk-card uk-card-default uk-card-body">Item</div>
+        </div>
+        <div>
+            <div class="uk-card uk-card-default uk-card-body">Item</div>
+        </div>
+        <div>
+            <div class="uk-card uk-card-default uk-card-body">Item</div>
+        </div>
+        <div>
+            <div class="uk-card uk-card-default uk-card-body">Item</div>
+        </div>
+        <div>
+            <div class="uk-card uk-card-default uk-card-body">Item</div>
+        </div>
+        <div>
+            <div class="uk-card uk-card-default uk-card-body">Item</div>
+        </div>
+        <div>
+            <div class="uk-card uk-card-default uk-card-body">Item</div>
+        </div>
+    </div>
+</div>
 </div>
 </div>
 </div>
 <br>
 <br>
+
 <!-- FOOTERS -->
 <div class="uk-position-relative uk-position-z-index-zero">
-    <div class="uk-background-secondary uk-padding uk-flex uk-flex-middle uk-light uk-height-medium uk-position-z-index-negative" uk-sticky="position: bottom; overflow-flip: true; start: -100%; end: 0">
+    <div class="uk-background-secondary uk-card uk-card-default uk-card-body uk-text-center uk-position-z-index position:b">
         <div class="uk-light uk-position-top-left uk-container uk-margin-top uk-margin-left">
-            <h2>Hotel<strong>Star</strong></h2>
-        </div>
-        <div class="uk-light uk-position-bottom-left uk-container uk-margin-bottom uk-margin-left">
-            Copyright @Rahmat
+            <p>@Copyright HotelStar</p>
         </div>
     </div>
 </div>
