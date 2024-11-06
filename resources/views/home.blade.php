@@ -115,21 +115,27 @@
         <br>
 </div>
 <div class="uk-container">
-    <div class="uk-child-width-1-2 uk-child-width-1-4@s uk-child-width-1-3@s uk-grid" uk-grid>
-    <div>
-    @foreach($facilitieshotel as $facilitieshotels)
-        <div class="uk-card uk-card-default uk-card-small">
-            <div class="uk-card-media-top">
-                <img src="{{ asset('storage/facilitieshotel/' .$facilitieshotels->image) }}" width="1800" height="1200" alt="">
-            </div>
-            <div class="uk-card-body">
-                <h3 class="uk-card-title uk-text-center">{{$facilitieshotels->name}}</h3>
+    <div class="uk-child-width-1-1 uk-child-width-1-1@s uk-child-width-1-1@m uk-grid" uk-grid>
+        <div class="uk-slider-container-offset" uk-slider>
+            <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1">
+                <div class="uk-slider-items uk-child-width-1-1 uk-child-width-1-2@s uk-child-width-1-3@m uk-grid">
+                    @foreach($facilitieshotel as $facilitieshotels)
+                    <div>
+                        <div class="uk-card uk-card-default">
+                            <div class="uk-card-media-top">
+                                <img src="{{ asset('storage/facilitieshotel/' .$facilitieshotels->image) }}" width="1800" height="1200" alt="">
+                            </div>
+                            <div class="uk-card-body">
+                                <h3 class="uk-card-title uk-text-center">{{$facilitieshotels->name}}</h3>
+                            </div>
+                        </div>
+                    </div>
+                    @endforeach
+                </div>
             </div>
         </div>
-    @endforeach
-</div>
-</div>
-</div>
+    </div>
+    </div>
 <!--  -->
 <div class="uk-margin-medium-top uk-heading-line uk-text-center uk-container">
         <h2 id="room"><strong>Type </strong>Room</h2>
@@ -173,44 +179,50 @@
 <div class="uk-child-width-1-1 uk-child-width-1-1@s uk-child-width-1-1@m uk-grid" uk-grid>
     <div class="uk-child-width-1-2@s uk-child-width-1-3@m uk-child-width-1-4@l uk-text-center uk-grid-column-small" uk-grid>
         <div>
-            <div class="uk-card uk-card-default uk-card-body">Item</div>
+            <div class="uk-card uk-card-default uk-card-media"><img src="{{ asset('storage/gallery.jpg') }}"></div>
         </div>
         <div>
-            <div class="uk-card uk-card-default uk-card-body">Item</div>
+            <div class="uk-card uk-card-default uk-card-media"><img src="{{ asset('storage/gallery.jpg') }}"></div>
         </div>
         <div>
-            <div class="uk-card uk-card-default uk-card-body">Item</div>
+            <div class="uk-card uk-card-default uk-card-media"><img src="{{ asset('storage/gallery.jpg') }}"></div>
         </div>
         <div>
-            <div class="uk-card uk-card-default uk-card-body">Item</div>
+            <div class="uk-card uk-card-default uk-card-media"><img src="{{ asset('storage/gallery.jpg') }}"></div>
         </div>
         <div>
-            <div class="uk-card uk-card-default uk-card-body">Item</div>
+            <div class="uk-card uk-card-default uk-card-media"><img src="{{ asset('storage/gallery.jpg') }}"></div>
         </div>
         <div>
-            <div class="uk-card uk-card-default uk-card-body">Item</div>
+            <div class="uk-card uk-card-default uk-card-media"><img src="{{ asset('storage/gallery.jpg') }}"></div>
         </div>
         <div>
-            <div class="uk-card uk-card-default uk-card-body">Item</div>
+            <div class="uk-card uk-card-default uk-card-media"><img src="{{ asset('storage/gallery.jpg') }}"></div>
         </div>
         <div>
-            <div class="uk-card uk-card-default uk-card-body">Item</div>
-        </div>
-        <div>
-            <div class="uk-card uk-card-default uk-card-body">Item</div>
-        </div>
-        <div>
-            <div class="uk-card uk-card-default uk-card-body">Item</div>
-        </div>
-        <div>
-            <div class="uk-card uk-card-default uk-card-body">Item</div>
-        </div>
-        <div>
-            <div class="uk-card uk-card-default uk-card-body">Item</div>
+            <div class="uk-card uk-card-default uk-card-media"><img src="{{ asset('storage/gallery.jpg') }}"></div>
         </div>
     </div>
 </div>
+<div class="uk-margin-medium-top uk-heading-line uk-text-center uk-container">
+    <h2 id="room"><strong>Hotel </strong>Room</h2>
+    <br>
 </div>
+@foreach ($room as $room)
+<h1 class="uk-heading-bullet">{{$room->tiperoom}}</h1>
+<div class="uk-container">
+    <div class="uk-child-width-1-1 uk-child-width-1-1@s uk-child-width-1-1@m uk-grid" uk-grid>
+        <div class="uk-child-width-1-2@s uk-child-width-1-3@m uk-child-width-1-5@l uk-text-center uk-grid-column-small" uk-grid>
+            @foreach($room->nameroom  as $nameroom)
+            <div>
+                <div class="uk-card uk-card-default uk-card-body">{{$nameroom->nama_ruangan}}</div>
+            </div>
+            @endforeach
+        </div>
+    </div>
+</div>
+<br>
+@endforeach
 </div>
 </div>
 <br>

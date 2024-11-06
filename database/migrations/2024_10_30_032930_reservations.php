@@ -21,8 +21,8 @@ return new class extends Migration
             $table->string("email");
             $table->string("no_handphone");
             $table->string("nama_tamu");
-            $table->unsignedBigInteger("room_id");
-            $table->foreign("room_id")->references("id")->on("rooms");
+            $table->unsignedBigInteger("noruangan_id");
+            $table->foreign("noruangan_id")->references("id")->on("namerooms");
             $table->boolean("status");
             $table->timestamps();
         });

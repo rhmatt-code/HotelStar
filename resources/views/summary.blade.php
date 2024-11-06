@@ -49,6 +49,7 @@
         <thead>
             <tr>
                 <th>Tipe Room</th>
+                <th>No Ruangan</th>
                 <th>Nama Pemesan</th>
                 <th>Nama Tamu</th>
                 <th>Cek In</th>
@@ -58,12 +59,13 @@
         </thead>
         <tbody class="table-group-divider">
             <tr>
-                <td>{{ $reservation->room->tiperoom }}</td>
+                <td>{{ $room->tiperoom }}</td>
+                <td>{{ $reservation->nameroom->nama_ruangan}}</td>
                 <td>{{ $reservation->nama_pemesan }}</td>
                 <td>{{ $reservation->nama_tamu }}</td>
                 <td>{{ $reservation->cek_in }}</td>
                 <td>{{ $reservation->cek_out }}</td>
-                <td>{{ $reservation->room->price }}</td>
+                <td>{{ $room->price }}</td>
             </tr>
         </tbody>
     </table>

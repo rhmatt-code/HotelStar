@@ -9,6 +9,7 @@ use App\Http\Controllers\RoomController;
 use App\Http\Controllers\ResepsionisController;
 use App\Http\Controllers\FacilitiesroomController;
 use App\Http\Controllers\FacilitieshotelController;
+use App\Http\Controllers\NameroomController;
 use App\Http\Controllers\Auth;
 
 
@@ -62,6 +63,14 @@ Route::middleware(['admin'])->group(function(){
         Route::get('admin/account/register', 'register')->name('register');
         Route::post('admin/account/register', 'store');
     });
+    Route::controller(NameroomController::class)->group(function () {
+        Route::get('nameroom', 'show')->name('nameroom');
+        Route::get('nameroom/add', 'add')->name('addnameroom');
+        Route::post('nameroom/store', 'store')->name('storenameroom');
+        Route::get('nameroom/edit/{id}', 'edit')->name('editnameroom');
+        Route::post('nameroom/update/{id}', 'update')->name('updatenameroom');
+        Route::get('nameroom/delete/{id}','delete')->name('deletenameroom');
+    });
 });
 Route::middleware(['auth', 'resepsionis'])->group(function(){
     Route::controller(ResepsionisController::class)->group(function () {
@@ -79,6 +88,6 @@ Route::middleware(['guest'])->group(function(){
         Route::get('home', 'home');
         Route::post('storeorder','store')->name('storeorder');
         Route::get('summary/{id}','cetak_pdf')->name('pdf');
-    
+
     });
 });

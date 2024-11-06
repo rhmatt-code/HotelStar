@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\nameroom;
 
 class reservations extends Model
 {
@@ -15,13 +16,15 @@ class reservations extends Model
         'email',
         'no_handphone',
         'nama_tamu',
-        'room_id',
+        'noruangan_id',
         'status',
     ];
     protected $table = "reservations";
-    
-    public function room()
+
+    public function nameroom()
     {
-        return $this->belongsTo(Room::class);
+        return $this->belongsTo(nameroom::class, 'noruangan_id');
     }
+
+
 }

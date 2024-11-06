@@ -21,20 +21,20 @@ class RoomController extends Controller
     public function store(Request $request){
         request() -> validate([
             'tiperoom' => ['required', 'string'],
-            'jumlahkamar' => ['required', 'string'],
+            'jumlah_orang' => ['required'],
             'image' => ['required'],
             'price' => ['required', 'integer'],
         ]);
         $request->image->store('room','public');
         Room::create([
             'tiperoom' => $request ->tiperoom,
-            'jumlahkamar' => $request ->jumlahkamar,
+            'jumlah_orang' => $request ->jumlah_orang,
             'image' => $request->image->hashName(),
             'price' => $request ->price,
         ]);
 
         return redirect('room');
-        
+
     }
     public function edit($id){
         $room = Room::find($id);
@@ -62,5 +62,5 @@ class RoomController extends Controller
 
         return redirect('room');
     }
-    
+
 }

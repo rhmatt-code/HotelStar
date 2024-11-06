@@ -8,7 +8,9 @@ use App\Models\Facilitieshotel;
 use App\Models\Facilitiesroom;
 use App\Models\reservations;
 use App\Models\room;
+use App\Models\nameroom;
 use Carbon\Carbon;
+
 
 use PDF;
 
@@ -17,10 +19,11 @@ class HomeController extends Controller
 {
     public function home(){
         $facilitieshotel = Facilitieshotel::all();
-        $room = room::with('facilitiesroom')->get();
+        $room = room::with('facilitiesroom','nameroom')->get();
         $room_id = room::where('id')->get();
+        $nameroom = nameroom::all();
 
-        return view('home', compact('facilitieshotel','room'));
+        return view('home', compact('facilitieshotel','room','nameroom'));
     }
 
     public function store(Request $request){
@@ -33,7 +36,7 @@ class HomeController extends Controller
             'nama_tamu' => ['required', 'string'],
             'room_id' => ['required', 'string'],
         ]);
-
+        $nameroom = nameroom::inRandomOrder()->where('room_id', $request->room_id)->first()->id;
         $reservation = reservations::create([
             'cek_in' => $request ->cek_in,
             'cek_out' => $request ->cek_out,
@@ -41,7 +44,7 @@ class HomeController extends Controller
             'email' => $request ->email,
             'no_handphone' => $request ->no_handphone,
             'nama_tamu' => $request ->nama_tamu,
-            'room_id' => $request ->room_id,
+            'noruangan_id' => $nameroom,
             'status' => false,
         ]);
 
@@ -51,11 +54,12 @@ class HomeController extends Controller
 
     }
     public function cetak_pdf($id){
-        $reservation = reservations::with('room')->where('id', $id)->get()->last();
+        $reservation = reservations::with('nameroom')->where('id',$id)->first();
+        $room = room::find($reservation->nameroom->room_id);
         $check_in = $reservation->cek_in;
         $check_out = $reservation->cek_out;
         $days = (Carbon::parse($check_in))->diff(Carbon::parse($check_out));
-        $price = ((int)$reservation->room->price);
+        $price = ((int)$reservation->price);
         $day = $days->d;
         if($day < 0){
             $total = $price * 1;
@@ -65,8 +69,8 @@ class HomeController extends Controller
             $total = $price * $day;
         };
 
-        $pdf = PDF::loadview('summary', compact('reservation','total'));
+        $pdf = PDF::loadview('summary', compact('reservation','total','room'));
     	return $pdf->download('summary.pdf');
     }
-    
+
 }

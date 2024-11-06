@@ -31,7 +31,7 @@
                                         <div class="uk-margin">
                                                 <div class="uk-position-relative">
                                                     <span class="uk-form-icon ion-edit"></span>
-                                                    <input name="jumlahkamar" class="uk-input" type="text" placeholder="Numbers of Room">
+                                                    <input name="jumlah_orang" class="uk-input" type="number" placeholder="Number of people">
                                                 </div>
                                             @error('jumlahkamar')
                                                 <div class="uk-alert-danger">

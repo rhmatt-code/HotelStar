@@ -41,6 +41,6 @@
                 <li><a href="{{route('facilitiesroom')}}">Facilities Room</a></li>
                 <li><a href="{{route('facilitieshotel')}}">Facilities Hotel</a></li>
                 <li><a href="{{route('account')}}">Account</a></li>
+                <li><a href="{{route('nameroom')}}">Name Room</a></li>
             </ul>
         </div>
-        
